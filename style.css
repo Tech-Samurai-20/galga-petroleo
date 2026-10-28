@@ -1,0 +1,322 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4; /* Fundo cinza claro */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    padding-top: 100px; /* Ajuste este valor para a altura do seu header. Ex: Se o header tem 70px de altura para a imagem do logo, e 20px de padding total (10px em cima e 10px em baixo), pode ser 90px ou 100px para garantir. */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(to right, #fff, #f9f9f9); /* Gradiente suave no cabeçalho */
+    padding: 0em 0;
+    border-bottom: 3px solid #e74c3c; /* Barra vermelha mais destacada */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    position: fixed; /* Mude de 'sticky' para 'fixed' para melhor controlo com JS */
+    width: 100%; /* Garante que o header ocupe toda a largura */
+    top: 0;
+    left: 0; /* Garante que o header está alinhado à esquerda */
+    z-index: 100;
+    transition: transform 0.3s ease-in-out; /* Adiciona transição suave para a animação de esconder/mostrar */
+}
+
+/* Classe para esconder o header (mover para fora da tela) */
+.header-hidden {
+    transform: translateY(-100%); /* Move o header para cima, fora da tela */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo img {
+    height: 70px; /* Logótipo um pouco maior */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+nav ul li a:hover {
+    color: #e74c3c; /* Vermelho vibrante no hover */
+    transform: scale(1.05); /* Pequena animação ao passar o rato */
+}
+
+section {
+    padding: 70px 0;
+    transition: background-color 0.3s ease; /* Transição para mudanças de cor de fundo */
+}
+
+section h2 {
+    color: #e74c3c; /* Vermelho nos títulos */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50px;
+    background-color: #e74c3c; /* Barra vermelha sob o título */
+}
+
+.hero {
+    background: linear-gradient(135deg, #f9f9f9 70%, #fff 100%); /* Gradiente diagonal suave */
+    padding: 100px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 30px;
+    animation: fadeSlideIn 1s ease-out; /* Animação ao carregar a página */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out 0.3s forwards; /* Animação com atraso */
+    opacity: 0;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button.primary {
+    background-color: #e74c3c; /* Vermelho primário */
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(231, 76, 60, 0.3); /* Sombra vermelha */
+}
+
+.button.primary:hover {
+    background-color: #c0392b; /* Vermelho mais escuro no hover */
+    transform: translateY(-2px); /* Leve elevação no hover */
+    box-shadow: 0 7px 12px rgba(192, 57, 43, 0.3);
+}
+
+.button.secondary {
+    background-color: #fff;
+    color: #e74c3c; /* Vermelho secundário */
+    border: 2px solid #e74c3c;
+}
+
+.button.secondary:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(231, 76, 60, 0.2);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Sombra suave nos serviços */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Adicionado para alinhar o conteúdo verticalmente */
+    flex-direction: column; /* Organiza o conteúdo interno em coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.service-item:hover {
+    transform: translateY(-5px); /* Leve elevação no hover */
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-item i {
+    font-size: 2.5em;
+    color: #e74c3c; /* Ícones vermelhos */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center; /* Garante que o título fique centralizado dentro da caixa */
+}
+
+.service-item p {
+    color: #666;
+    line-height: 1.7;
+    text-align: center; /* Garante que o texto fique centralizado dentro da caixa */
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.contact-form {
+    background-color: #fff; /* Adiciona um fundo branco */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o formulário */
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    background-color: #f9f9f9; /* Adiciona um fundo cinza claro aos inputs */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #e74c3c; /* Foco vermelho nos campos */
+    outline: none;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-info h3 {
+    color: #e74c3c; /* Título das informações de contacto em vermelho */
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.contact-info p {
+    color: #666;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info i {
+    color: #e74c3c; /* Ícones de contacto em vermelho */
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+footer .container {
+    padding: 0 20px;
+}
+
+/* Animações */
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
